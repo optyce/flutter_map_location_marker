@@ -72,19 +72,22 @@ class LocationMarkerLayerState extends State<LocationMarkerLayer>
     });
   }
 
-  @override
-  void didUpdateWidget(LocationMarkerLayer oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    final previousPositionStream = _locationMarkerOpts.positionStream;
-    if (widget.locationMarkerOpts != oldWidget.locationMarkerOpts) {
-      _locationMarkerOpts =
-          widget.locationMarkerOpts ?? LocationMarkerLayerOptions();
-      if (_locationMarkerOpts.positionStream != previousPositionStream) {
-        _positionStreamSubscription.cancel();
-        _positionStreamSubscription = _subscriptPositionStream();
-      }
-    }
-  }
+  // This is the 3.1.1 version of the plugin.
+  // This is commented because when using Bloc and DI,
+  // the comparison widget.locationMarkerOpts != oldWidget.locationMarkerOpts is always true.
+  // @override
+  // void didUpdateWidget(LocationMarkerLayer oldWidget) {
+  //   super.didUpdateWidget(oldWidget);
+  //   final previousPositionStream = _locationMarkerOpts.positionStream;
+  //   if (widget.locationMarkerOpts != oldWidget.locationMarkerOpts) {
+  //     _locationMarkerOpts =
+  //         widget.locationMarkerOpts ?? LocationMarkerLayerOptions();
+  //     if (_locationMarkerOpts.positionStream != previousPositionStream) {
+  //       _positionStreamSubscription.cancel();
+  //       _positionStreamSubscription = _subscriptPositionStream();
+  //     }
+  //   }
+  // }
 
   @override
   void dispose() {
