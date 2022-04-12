@@ -12,7 +12,11 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_joystick: ^0.0.2
-  flutter_map: any
+  flutter_map:
+    hosted:
+      name: flutter_map
+      url: https://unpub.optyce.eu
+    version: ^0.14.0
   flutter_map_location_marker:
     path: ../
   geolocator: any
