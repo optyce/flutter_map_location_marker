@@ -72,22 +72,21 @@ class LocationMarkerLayerState extends State<LocationMarkerLayer>
     });
   }
 
-  // This is the 3.1.1 version of the plugin.
-  // This is commented because when using Bloc and DI,
-  // the comparison widget.locationMarkerOpts != oldWidget.locationMarkerOpts is always true.
-  // @override
-  // void didUpdateWidget(LocationMarkerLayer oldWidget) {
-  //   super.didUpdateWidget(oldWidget);
-  //   final previousPositionStream = _locationMarkerOpts.positionStream;
-  //   if (widget.locationMarkerOpts != oldWidget.locationMarkerOpts) {
-  //     _locationMarkerOpts =
-  //         widget.locationMarkerOpts ?? LocationMarkerLayerOptions();
-  //     if (_locationMarkerOpts.positionStream != previousPositionStream) {
-  //       _positionStreamSubscription.cancel();
-  //       _positionStreamSubscription = _subscriptPositionStream();
-  //     }
-  //   }
-  // }
+  // This is the 3.1.4 version of the plugin.
+  // This resolves the issue of the plugin always entering line 81 and line 84 even if 
+  // the pos is the same.
+  @override
+  void didUpdateWidget(LocationMarkerLayer oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.locationMarkerOpts != oldWidget.locationMarkerOpts) {
+      _locationMarkerOpts =
+          widget.locationMarkerOpts ?? LocationMarkerLayerOptions();
+      if (widget.locationMarkerOpts?.key != oldWidget.locationMarkerOpts?.key) {
+        _positionStreamSubscription.cancel();
+        _positionStreamSubscription = _subscriptPositionStream();
+      }
+    }
+  }
 
   @override
   void dispose() {

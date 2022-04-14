@@ -1,3 +1,7 @@
+## [3.1.4] - Improve behavior
+
+* fixed didUpdateWidget because when using flutter_map_location_marker with Bloc and DI this caused a problem with the stream inside
+
 ## [3.1.1] - Improve behavior
 
 * Removed didUpdateWidget because when using flutter_map_location_marker with Bloc and DI this caused a problem with the stream inside
