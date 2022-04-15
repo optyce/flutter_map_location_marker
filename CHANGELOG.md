@@ -1,3 +1,7 @@
+## [3.1.5] - Fixed Windows crashes
+
+* fixed windows crashes by returning Stream.Empty()
+
 ## [3.1.4] - Improve behavior
 
 * fixed didUpdateWidget because when using flutter_map_location_marker with Bloc and DI this caused a problem with the stream inside

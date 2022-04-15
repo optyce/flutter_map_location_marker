@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter_compass/flutter_compass.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
@@ -34,6 +36,11 @@ class LocationMarkerDataStreamFactory {
     double defAccuracy = pi * 0.3,
     double maxAccuracy = pi * 0.4,
   }) {
+    if (!kIsWeb) {
+      if (Platform.isWindows) {
+        return const Stream.empty();
+      }
+    }
     return (stream ?? FlutterCompass.events ?? const Stream.empty())
         .where((CompassEvent compassEvent) => compassEvent.heading != null)
         .map((CompassEvent compassEvent) {
