@@ -1,6 +1,6 @@
 name: flutter_map_location_marker
 description: A flutter map plugin for displaying device current location.
-version: 3.1.5
+version: 3.1.6
 publish_to: https://unpub.optyce.eu
 
 environment:
@@ -14,7 +14,7 @@ dependencies:
     hosted:
       name: flutter_map
       url: https://unpub.optyce.eu
-    version: ^0.14.1
+    version: ^0.15.0
   geolocator: ^8.2.0
   latlong2: ^0.8.1
 

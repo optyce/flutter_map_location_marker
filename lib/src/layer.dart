@@ -24,7 +24,7 @@ class LocationMarkerLayer extends StatefulWidget {
   final MapState map;
 
   /// A rebuild signal stream for GroupLayer. See [GroupLayer.stream].
-  final Stream<Null> stream;
+  final Stream<void> stream;
 
   /// Create a LocationMarkerLayer.
   LocationMarkerLayer(
@@ -73,7 +73,7 @@ class LocationMarkerLayerState extends State<LocationMarkerLayer>
   }
 
   // This is the 3.1.4 version of the plugin.
-  // This resolves the issue of the plugin always entering line 81 and line 84 even if 
+  // This resolves the issue of the plugin always entering line 81 and line 84 even if
   // the pos is the same.
   @override
   void didUpdateWidget(LocationMarkerLayer oldWidget) {
